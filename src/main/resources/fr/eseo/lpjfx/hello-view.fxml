@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="fr.eseo.lpjfx.controller.LabyrintheController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <!-- Texte de bienvenue -->
+    <Label fx:id="welcomeText" text="Bienvenue dans le labyrinthe !"/>
+
+    <!-- Labyrinthe affiché ici -->
+    <GridPane fx:id="gridPane"/>
+
+    <!-- Commandes -->
+    <VBox alignment="CENTER" spacing="10.0" fx:id="commandesVBox" style="-fx-border-color: black; -fx-border-width: 2;">
+        <!-- Les commandes ajoutées seront affichées ici -->
+    </VBox>
+
+    <!-- Boutons de commande -->
+    <VBox alignment="CENTER" spacing="10.0">
+        <Button text="Avancer" onAction="#ajouterCommandeAvancer" style="-fx-background-color: #007bff; -fx-text-fill: white;"/>
+        <Button text="Tourner à Gauche" onAction="#ajouterCommandeTournerGauche" style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+        <Button text="Tourner à Droite" onAction="#ajouterCommandeTournerDroite" style="-fx-background-color: #dc3545; -fx-text-fill: white;"/>
+        <Button text="Ajouter Boucle" onAction="#ajouterCommandeBoucle" style="-fx-background-color: #ffc107; -fx-text-fill: black;"/>
+        <Button text="Ajouter Condition SI" onAction="#ajouterCommandeSi" style="-fx-background-color: #6f42c1; -fx-text-fill: white;"/>
+        <Button text="Réinitialiser" onAction="#reinitialiserCommandes" />
+
+    </VBox>
+
+    <!-- Exécution des commandes -->
+    <Button text="Exécuter Commandes" onAction="#executerCommandes"/>
+
+    <Label fx:id="commandesLabel" text="Commandes exécutées apparaîtront ici."/>
+
+    <!-- Boutons directionnels du labyrinthe -->
+    <GridPane alignment="CENTER" hgap="5" vgap="5">
+        <Button text="↑" onAction="#avancerPers" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Button text="←" onAction="#tournerGauche" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Button text="→" onAction="#tournerDroite" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    </GridPane>
+</VBox>
